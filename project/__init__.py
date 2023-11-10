@@ -2,12 +2,13 @@ import os
 from flask import Flask
 from flask_jwt_extended import JWTManager
 from flask_sqlalchemy import SQLAlchemy
+from flask_bcrypt import Bcrypt
 app = Flask(__name__)
 
 # Setup the Flask-JWT-Extended extension
 app.config["JWT_SECRET_KEY"] = "super-secret"  # Change this!
 jwt = JWTManager(app)
-
+bcrypt = Bcrypt(app)
 
 basedir = os.path.abspath(os.path.dirname(__file__))
 # Connects our Flask App to our Database

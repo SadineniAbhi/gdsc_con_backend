@@ -27,6 +27,8 @@ with app.app_context():
     print(staff1.name)
     freetime = list(staff1.free_times)
 
-    for i in freetime:
-        print(i.location)
+    all_usernames = User.query.with_entities(User.username).all()
+    usernames = [username[0] for username in all_usernames]
+
+    print(usernames)
 
